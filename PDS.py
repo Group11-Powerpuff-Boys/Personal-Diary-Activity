@@ -1,3 +1,10 @@
+try:
+    f = open("Diary.txt", "x")
+    f.write("04/28/2026")
+    f.close()
+except FileExistsError:
+    print("File not Found")
+
 
 while True:
     print("Personal Diary Application");
