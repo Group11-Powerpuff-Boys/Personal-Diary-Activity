@@ -15,7 +15,15 @@ while True:
         choice = int(input("Enter Choice: "))
 
         if choice == 1:
-            print("Add")
+            try:
+                diary = input("Write your diary: ")
+                with open("Diary.txt", "a") as f:
+                    f.write(diary + "\n")
+                print("Diary added successfully!")
+
+            except Exception as error:
+                print("An error occurred while adding the diary:", error)
+            
         elif choice == 2:
             print("view")
         elif choice == 3:
