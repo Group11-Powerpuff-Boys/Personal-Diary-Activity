@@ -33,7 +33,7 @@ while True:
                     else:
                         print("\n--- Diary Entries ---")
                         print(content)
-                        print("---------------------")
+                        print("----------------------")
             except FileNotFoundError:
                 print("Diary file not found.")
 
