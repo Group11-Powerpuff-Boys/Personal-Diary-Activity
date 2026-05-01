@@ -1,6 +1,7 @@
+from datetime import datetime
+
 try:
     f = open("Diary.txt", "x")
-    f.write("04/28/2026\n")
     f.close()
 except FileExistsError:
     print("File already exists")
@@ -17,8 +18,12 @@ while True:
         if choice == 1:
             try:
                 diary = input("Write your diary: ")
+                now = datetime.now()
+                date_time = now.strftime("%m/%d/%Y %I:%M %p")
+
                 with open("Diary.txt", "a") as f:
-                    f.write(diary + "\n")
+                    f.write(f"[{date_time}] {diary}\n")
+
                 print("Diary added successfully!")
 
             except Exception as error:
@@ -33,7 +38,7 @@ while True:
                     else:
                         print("\n--- Diary Entries ---")
                         print(content)
-                        print("----------------------")
+                        print("---------------------")
             except FileNotFoundError:
                 print("Diary file not found.")
 
